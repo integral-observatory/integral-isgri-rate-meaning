@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3667772.svg)](https://doi.org/10.5281/zenodo.3667772)
+
 # Inter-OSA rate normalization for INTEGRAL ISGRI
 
 Raw count rate produced in ISGRI by a given source strongly depends on the source position within the FoV, and on time.
