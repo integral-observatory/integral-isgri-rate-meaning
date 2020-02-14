@@ -3,7 +3,7 @@
 Raw count rate produced in ISGRI by a given source strongly depends on the source position within the FoV, and on time.
 In principle, appropriate conversion from the physical flux to the reconstructed source count rate can be expressed with the dispersive response, provided along with the source spectra.
 
-However, the response model and the corrections are designed to allow the count rate to be approximatelly proportional the source flux for different source positions and different times.
+However, the response model and the corrections are designed to allow the count rate to be approximatelly proportional to the source flux for different source positions and different times.
 This rate, reported in the standard OSA results is a reconstructed rate, aiming to reproduce true rate of event detection which would be produced for a given source if the source was on-axis, and the various efficiency losses did in the instrument (mask support and the detector) did not exist. 
 
 This "true" rate can not be directly measured, and the meaning of the count rate depends on the instrument model assumed by the reconstruction process in OSA. The difference is especially large between OSA10.2 and OSA11.0, owing to a major progress in the detector understanding.
