@@ -2,19 +2,16 @@
 
 # Inter-OSA rate normalization for INTEGRAL ISGRI
 
-Raw count rate produced in ISGRI by a given source strongly depends on the source position within the FoV, and on time.
-In principle, appropriate conversion from the physical flux to the reconstructed source count rate can be expressed with the dispersive response, provided along with the source spectra.
+The raw count rate produced in ISGRI by a given source strongly depends on time, and on the source position within the FoV.
+In principle, appropriate conversion from the physical flux to the reconstructed source count rate can be expressed with the dispersive response provided with the source spectra.
 
-However, the response model and the corrections are designed to allow the count rate to be approximatelly proportional to the source flux for different source positions and different times.
-This rate, reported in the standard OSA results is a reconstructed rate, aiming to reproduce true rate of event detection which would be produced for a given source if the source was on-axis, and the various efficiency losses did in the instrument (mask support and the detector) did not exist. 
+However, the response model and the corrections are designed to allow the count rate to be approximately proportional to the source flux for different source positions and different times. This rate, reported in the standard OSA results, is a reconstructed rate aiming to reproduce the true rate of event detection that would be expected by a given source if 1) the source was on-axis, and 2) the various instrumental efficiency losses (mask support and the detector) did not exist. 
 
-This "true" rate can not be directly measured, and the meaning of the count rate depends on the instrument model assumed by the reconstruction process in OSA. The difference is especially large between OSA10.2 and OSA11.0, owing to a major progress in the detector understanding.
-OSA11.0 aims to be provide reconstruction relying as much as possible on physical properties of the detector, and while it is possible to introduce an addition time- and energy-dependent factor to make the rate close to that of OSA10.2, such an act would introduce a number of clearly artifical features in the ISGRI spectra, while part of the goal of OSA11.0 was to banish these features.
-Which is why an elaborate cross-normalization is required.
+This "true" rate cannot be directly measured, and the meaning of the count rate depends on the instrument model assumed in the reconstruction process in OSA. The difference is especially important between OSA10.2 and OSA11.0, owing to a major progress in the detector understanding: 
 
-Note that although OSA11 removes several time-dependent reconstruction features present in OSA10.2 (and earlier), it is not possible to ensure that the count spectrum of an perfectly constant source remains identical thoughout the mission. This is because the resolution of the instruments degrades with time, and some information is irreversibly lost.
+OSA11.0 aims to be provide a reconstruction that relies as much as possible on the physical properties of the detector. And even though it would be possible to introduce additional factors to make the rate close to that of OSA10.2, this would inevitably introduce artifical features in the ISGRI spectra. This would be counterproductive given that one of the main goals of OSA11.0 was to actually correct such spectral features introduced by manipulations of the response files, that also made it necessary to have elaborate cross-normalization.
 
-The information about the meaning of the ISGRI rate is contained in the response mode, expressed im the RMF and ARF structures. An example how to extract this normaliation, for a given spectrum, is shown here:
+The information about the meaning of the ISGRI rate is contained in the response model expressed in the RMF and ARF structures. An example how to extract this normaliation, for a given spectrum, is shown here:
 
 
 ```python
@@ -73,7 +70,6 @@ def resp_norm(D, e1, e2, plot=False):
     source=crab_ph_cm2_s_kev(ie1)
     
     csource=np.outer(arf['SPECRESP']*source*(ie2-ie1),np.ones_like(rmf_eb['E_MIN']))*rmf_mt['MATRIX']
-        
     
     if plot:
         plt.figure()
@@ -95,15 +91,11 @@ def resp_norm(D, e1, e2, plot=False):
     print("response norm in", e1,e2,"is",n, "rate norm", rate_n)
 
     return n
-
-
-   
     
 resp_norm(spec_data_osa10, 30, 100, plot=True)
 resp_norm(spec_data_osa11, 30, 100, plot=True)
 
 ```
 
-See for a use case: 
-
+See for a use case:
 https://github.com/cdcihub/oda_api_benchmark/blob/master/examples/Crab_lc_longterm.ipynb
