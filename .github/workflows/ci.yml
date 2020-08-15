@@ -21,7 +21,7 @@ jobs:
         
         source /etc/pyenvrc
         which python
-        pip install papermill 
+        pip install papermill jupyter_client --upgrade --ignore-installed
         export HOME_OVERRRIDE=/tmp/home
         mkdir -pv /tmp/home
         export
