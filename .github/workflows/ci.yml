@@ -16,6 +16,11 @@ jobs:
     
     - name: Run Notebook
       run: |
+        pwd
+        ls -ltor
+        ls -ltor /init.sh
+        ls -lotr /
+        cat init.sh
         export HOME_OVERRRIDE=/tmp
         source /init.sh
         pip install papermill 
