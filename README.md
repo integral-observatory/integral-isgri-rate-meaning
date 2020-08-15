@@ -9,9 +9,9 @@ However, the response model and the corrections are designed to allow the count 
 
 This "true" rate cannot be directly measured, and the meaning of the count rate depends on the instrument model assumed in the reconstruction process in OSA. The difference is especially important between OSA10.2 and OSA11.0, owing to a major progress in the detector understanding: 
 
-OSA11.0 aims to be provide a reconstruction that relies as much as possible on the physical properties of the detector. And even though it would be possible to introduce additional factors to make the rate close to that of OSA10.2, this would inevitably introduce artifical features in the ISGRI spectra. This would be counterproductive given that one of the main goals of OSA11.0 was to actually correct such spectral features introduced by manipulations of the response files, that also made it necessary to have elaborate cross-normalization.
+OSA11.0 aims to be provide a reconstruction that relies as much as possible on the physical properties of the detector. And even though it would be possible to introduce additional factors to make the rate close to that of OSA10.2, this would inevitably introduce artificial features in the ISGRI spectra. This would be counterproductive given that one of the main goals of OSA11.0 was to actually correct such spectral features introduced by manipulations of the response files, that also made it necessary to have elaborate cross-normalization.
 
-The information about the meaning of the ISGRI rate is contained in the response model expressed in the RMF and ARF structures. An example how to extract this normaliation, for a given spectrum, is shown here:
+The information about the meaning of the ISGRI rate is contained in the response model expressed in the RMF and ARF structures. An example how to extract this normalization, for a given spectrum, is shown here:
 
 
 ```python
