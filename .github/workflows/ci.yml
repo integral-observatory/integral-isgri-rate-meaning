@@ -21,7 +21,8 @@ jobs:
         source /etc/pyenvrc
         which python
         pip install papermill 
-        export HOME_OVERRRIDE=/tmp 
+        export HOME_OVERRRIDE=/tmp/home
+        mkdir -pv /tmp/home
         export
         source /init.sh
         papermill count-flux-conversion.ipynb count-flux-conversion-output.ipynb
