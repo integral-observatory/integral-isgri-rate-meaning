@@ -16,6 +16,7 @@ jobs:
     
     - name: Run Notebook
       run: |
+        set +e
         cat /init.sh
         
         source /etc/pyenvrc
