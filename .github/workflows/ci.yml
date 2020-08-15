@@ -13,20 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup Python
-      run: pip install papermill 
-    
-    - name: Vale
-      uses: errata-ai/vale-action@v1.2.0
-      with:
-        styles: |
-          https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
-          https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
-
-        config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini
-
-        files: README.md
-    
     - name: Run Notebook
       run: |
+        pip install papermill 
         papermill count-flux-conversion.ipynb count-flux-conversion-output.ipynb
