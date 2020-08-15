@@ -9,25 +9,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: node:10.16-jessie
+    container: integralsw/osa-python:auto-latest
     
     steps:
     - uses: actions/checkout@v2
-
-    - name: Setup Python
-      run: pip install papermill 
-    
-    - name: Vale
-      uses: errata-ai/vale-action@v1.2.0
-      with:
-        styles: |
-          https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
-          https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
-
-        config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini
-
-        files: README.md
     
     - name: Run Notebook
       run: |
+        set +e
+        cat /init.sh
+        
+        source /etc/pyenvrc
+        which python
+        pip install papermill jupyter_client astroquery astropy oda_api --upgrade --ignore-installed
+        export HOME_OVERRRIDE=/tmp/home
+        mkdir -pv /tmp/home
+        export
+        source /init.sh
         papermill count-flux-conversion.ipynb count-flux-conversion-output.ipynb
