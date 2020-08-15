@@ -21,6 +21,9 @@ jobs:
         ls -ltor /init.sh
         ls -lotr /
         cat /init.sh
+        
+        source /etc/pyenvrc
+        which python
         HOME_OVERRRIDE=/tmp source /init.sh
         pip install papermill 
         papermill count-flux-conversion.ipynb count-flux-conversion-output.ipynb
