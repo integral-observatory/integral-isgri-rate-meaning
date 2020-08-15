@@ -20,8 +20,7 @@ jobs:
         ls -ltor
         ls -ltor /init.sh
         ls -lotr /
-        cat init.sh
-        export HOME_OVERRRIDE=/tmp
-        source /init.sh
+        cat /init.sh
+        HOME_OVERRRIDE=/tmp source /init.sh
         pip install papermill 
         papermill count-flux-conversion.ipynb count-flux-conversion-output.ipynb
