@@ -16,14 +16,12 @@ jobs:
     
     - name: Run Notebook
       run: |
-        pwd
-        ls -ltor
-        ls -ltor /init.sh
-        ls -lotr /
         cat /init.sh
         
         source /etc/pyenvrc
         which python
-        HOME_OVERRRIDE=/tmp source /init.sh
         pip install papermill 
+        export HOME_OVERRRIDE=/tmp 
+        export
+        source /init.sh
         papermill count-flux-conversion.ipynb count-flux-conversion-output.ipynb
