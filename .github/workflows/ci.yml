@@ -8,8 +8,9 @@ on:
 
 jobs:
   build:
-    runs-on: integralsw/osa-python:auto-latest
-
+    runs-on: ubuntu-latest
+    container: node:10.16-jessie
+    
     steps:
     - uses: actions/checkout@v2
 
