@@ -1,4 +1,6 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3667772.svg)](https://doi.org/10.5281/zenodo.3667772)
+![Prose Linting](https://github.com/volodymyrss/integral-isgri-rate-meaning/workflows/Prose%20Linting/badge.svg)
+![Executing Notebook](https://github.com/volodymyrss/integral-isgri-rate-meaning/workflows/Executing%20Notebook/badge.svg)
 
 # Inter-OSA rate normalization for INTEGRAL ISGRI
 
