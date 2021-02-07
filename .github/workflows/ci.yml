@@ -21,9 +21,10 @@ jobs:
         
         source /etc/pyenvrc
         which python
-        pip install papermill jupyter_client astroquery astropy oda_api --upgrade --ignore-installed
+        pip install papermill jupyter_client astroquery astropy oda_api nbconvert --upgrade --ignore-installed
         export HOME_OVERRRIDE=/tmp/home
         mkdir -pv /tmp/home
         export
         source /init.sh
         papermill count-flux-conversion.ipynb count-flux-conversion-output.ipynb
+        jupyter nbconvert --to html count-flux-conversion.ipynb
