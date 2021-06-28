@@ -2,7 +2,7 @@
 ![Prose Linting](https://github.com/volodymyrss/integral-isgri-rate-meaning/workflows/Prose%20Linting/badge.svg)
 ![Executing Notebook](https://github.com/volodymyrss/integral-isgri-rate-meaning/workflows/Executing%20Notebook/badge.svg)
 
-# Coping with the degrading sensitivity acros the mission's lifetime
+# Working with degrading sensitivity across the mission's lifetime
 
 The new calibration files will allow for the analysis with OSA 11 of all data. There is however a fundamental challenge that comes from the fact that the sensitivity of the instrument has degraded over time, and that this has led to the loss of sensitivity at low energies. In practice this means that the instrument used to be see photons down to 13 keV at the start of the mission, but that this lower limit is now 27 keV. This poses an important problem in defining the low energy limit to use for the analysis.
 
