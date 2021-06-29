@@ -2,6 +2,16 @@
 ![Prose Linting](https://github.com/volodymyrss/integral-isgri-rate-meaning/workflows/Prose%20Linting/badge.svg)
 ![Executing Notebook](https://github.com/volodymyrss/integral-isgri-rate-meaning/workflows/Executing%20Notebook/badge.svg)
 
+# Working with degrading sensitivity across the mission's lifetime
+
+The new calibration files will allow for the analysis with OSA 11 of all data. There is however a fundamental challenge that comes from the fact that the sensitivity of the instrument has degraded over time, and that this has led to the loss of sensitivity at low energies. In practice this means that the instrument used to be see photons down to 13 keV at the start of the mission, but that this lower limit is now 27 keV. This poses an important problem in defining the low energy limit to use for the analysis.
+
+The main issue is that in order to analyse data, the energy band must be defined. And in order to combine data from difference science windows, they must all have the same energy band. Therefore, it is not possible to define different energy bands for the data from different parts of the mission, and then combine them together. This seriously compromises the underlying goal of supporting the analysis of data across the entire mission with the same software and improved calibration files.
+
+Following a discussion between Volodymyr Savchenko and Guillaume Belanger, the proposed solution is to use an OSA parameter whose value would set in a time-dependent manner that reflects the low-energy threshold of the instrument independently of the energy band definition. This would then ensure that data is always analysed with the most appropriate threshold throughout the mission, and allow people to analyse and combine data without losing good photons, or getting degraded images and spectra.
+
+This should be put in place and release in a minor version of OSA 11 with the release of the new calibration files.
+
 # Inter-OSA rate normalization for INTEGRAL ISGRI
 
 The raw count rate produced in ISGRI by a given source strongly depends on time, and on the source position within the FoV.
@@ -101,3 +111,5 @@ resp_norm(spec_data_osa11, 30, 100, plot=True)
 
 See for a use case:
 https://github.com/cdcihub/oda_api_benchmark/blob/master/examples/Crab_lc_longterm.ipynb
+
+
